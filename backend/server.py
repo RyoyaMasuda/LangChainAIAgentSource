@@ -61,16 +61,16 @@ def agent_entry(req: Union[AgentRequest, dict]) -> dict:
 
     if req.action == "start":
         theme = req.theme or "宇宙ゴミの回収事業"
-        print(f"[agent_entry] start theme={theme}")
+        print(f"[agent_entry] start theme={theme}")  
         data = run_graph_start(theme=theme, thread_id=tid)
-        print(f"[agent_entry] start done status={data.get('status')}") 
+        print(f"[agent_entry] start done status={data.get('status')}")  
         return {"thread_id": tid, **data}
 
     # resume
     decision = (req.decision or "").strip().lower()
-    print(f"[agent_entry] resume decision={decision}") 
+    print(f"[agent_entry] resume decision={decision}")  
     data = run_graph_resume(decision=decision, thread_id=tid)
-    print(f"[agent_entry] resume done status={data.get('status')}")
+    print(f"[agent_entry] resume done status={data.get('status')}")  
     return {"thread_id": tid, **data}
 
 

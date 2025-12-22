@@ -1,1 +1,5 @@
 .env
+__pycache__/
+.langgraph_api/
+.venv/
+checkpoints.sqlite

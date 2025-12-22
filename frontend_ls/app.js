@@ -4,8 +4,6 @@ const INVOKE_URL = `${API_BASE}/agent/invoke`;
 /**
  * ✅ 重要:
  * fetch はデフォルトでタイムアウトしません。
- * 以前のコードはフロント都合で abort してしまっていました。
- *
  * - 0: 自動タイムアウト無効（おすすめ）
  * - 例) 10分にしたいなら 600_000
  */
@@ -317,7 +315,7 @@ async function start() {
   const theme = themeValue();
   persistTheme(theme);
 
-  // ✅ thread_id を先に決めて送る（中断しても同じIDを握れる）
+  // thread_id を先に決めて送る（中断しても同じIDを握れる）
   const tid = ensureThreadId();
 
   setUiState("starting");
